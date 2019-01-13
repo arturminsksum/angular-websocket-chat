@@ -2,7 +2,7 @@
   "editor.tabSize": 2,
   "editor.renderWhitespace": "boundary",
   "editor.wordWrap": "on",
-  "files.autoSave": "onWindowChange",
+  "files.autoSave": "off",
   "window.zoomLevel": 0,
   "files.trimTrailingWhitespace": true,
   "editor.formatOnSave": true
