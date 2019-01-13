@@ -1,0 +1,9 @@
+{
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "boundary",
+  "editor.wordWrap": "on",
+  "files.autoSave": "onWindowChange",
+  "window.zoomLevel": 0,
+  "files.trimTrailingWhitespace": true,
+  "editor.formatOnSave": true
+}
