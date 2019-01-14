@@ -17,6 +17,6 @@ export enum Event {
 
 export interface Message {
   from?: User;
-  connect?: any;
+  content?: any;
   action?: Action;
 }
