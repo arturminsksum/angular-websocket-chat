@@ -7,7 +7,6 @@ export interface User {
 export enum Action {
   JOINED,
   LEFT,
-  RENAME,
 }
 
 export enum Event {

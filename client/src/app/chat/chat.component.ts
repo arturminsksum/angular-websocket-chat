@@ -4,6 +4,8 @@ import { Action, User, Message, Event } from './shared/model';
 import { SocketService } from './shared/services/socket.service';
 import { Subscription } from 'rxjs';
 
+const AVATAR_URL = 'https://api.adorable.io/avatars/285';
+
 @Component({
   selector: 'tcc-chat',
   templateUrl: './chat.component.html',
@@ -20,6 +22,21 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
     this.initIoConnection();
+    this.initModel();
+    this.sendNotification(Action.JOINED);
+  }
+
+  private getRandomId(): number {
+    return Math.floor(Math.random() * 1000000) + 1;
+  }
+
+  private initModel(): void {
+    const randomId = this.getRandomId();
+    this.user = {
+      id: randomId,
+      name: `user${Date.now()}`,
+      avatar: `${AVATAR_URL}/${randomId}.png`,
+    };
   }
 
   private initIoConnection(): void {
@@ -47,21 +64,13 @@ export class ChatComponent implements OnInit {
     this.messageContent = null;
   }
 
-  sendNotification(params: any, action: Action): void {
+  sendNotification(action: Action): void {
     let message: Message;
 
     if (action === Action.JOINED) {
       message = {
         from: this.user,
         action: action,
-      };
-    } else if (action === Action.RENAME) {
-      message = {
-        action: action,
-        content: {
-          username: this.user.name,
-          previousUsername: params.previousUsername,
-        },
       };
     }
 
